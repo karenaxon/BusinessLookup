@@ -43,6 +43,38 @@ namespace BusinessLookup.Migrations
                     b.HasKey("BusinessId");
 
                     b.ToTable("Businesses");
+
+                    b.HasData(
+                        new
+                        {
+                            BusinessId = 1,
+                            City = "Bothell",
+                            Name = "Julio's",
+                            State = "WA",
+                            StreetAddress = "123 Street",
+                            Type = "Restaurant",
+                            ZipCode = "98021"
+                        },
+                        new
+                        {
+                            BusinessId = 2,
+                            City = "Bellevue",
+                            Name = "Best Flowers",
+                            State = "WA",
+                            StreetAddress = "Wonderful Street",
+                            Type = "Florist",
+                            ZipCode = "98023"
+                        },
+                        new
+                        {
+                            BusinessId = 3,
+                            City = "Renton",
+                            Name = "Shinny Clean",
+                            State = "WA",
+                            StreetAddress = "Main Street",
+                            Type = "Dry Cleaner",
+                            ZipCode = "98025"
+                        });
                 });
 #pragma warning restore 612, 618
         }
