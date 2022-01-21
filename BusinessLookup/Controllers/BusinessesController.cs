@@ -20,9 +20,41 @@ namespace BusinessLookup.Controllers
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Business>>> Get()
+    public async Task<ActionResult<IEnumerable<Business>>> Get(string name, string type, string streetAddress, string city, string state, string zipCode)
     {
-      return await _db.Businesses.ToListAsync();
+      var query = _db.Businesses.AsQueryable();
+
+      if(name != null)
+      {
+        query = query.Where(entry => entry.Name.Contains(name));
+      }
+
+      if(type != null)
+      {
+        query = query.Where(entry => entry.Type.Contains(type));
+      }
+
+      if(streetAddress != null)
+      {
+        query = query.Where(entry => entry.StreetAddress == streetAddress);
+      }
+
+      if(city != null)
+      {
+        query = query.Where(entry => entry.City == city);
+      }
+
+      if(state != null)
+      {
+        query = query.Where(entry => entry.State == state);
+      }
+
+      if(zipCode != null)
+      {
+        query = query.Where(entry => entry.ZipCode == zipCode);
+      }
+
+      return await query.ToListAsync();
     }
 
     [HttpPost]
