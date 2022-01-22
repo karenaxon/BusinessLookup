@@ -1,5 +1,5 @@
 # Karen Axon Portfolio
-This business lookup API lists businesses in the United States. It has CRUD and Cors functionality and successfully returns API calls.
+This is a business lookup API. It has Create, Read, Update, and Delete (CRUD) and Cross-Origin Requests (CORS) functionality. It successfully returns API calls.
 
 #### By Karen Axon
 
@@ -19,15 +19,27 @@ This business lookup API lists businesses in the United States. It has CRUD and 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
 
-## About Cors
+## About CORS
 
- With CORS, a server can specify who can access the assets of an API and which HTTP request methods are allowed from external resources.
+ Browser security prevents a web page from making requests to a different domain. CORS, allows a server to relax the same-origin policy and to specify which HTTP request methods are allowed from external resources. This API uses a named policy to enable CORS. The allowed URLs can be changed in the ConfigureServices method of the Startup.cs file. 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
 
-## About Cors
+## API Endpoints
+* Example URL: http://localhost:5000/api/Businesses
+* To get a list of all the businesses use: <br>_api/Businesses_
+* To look up a business with a specific id number use: <br>_api/Businesses/id_
+* To get a set of results based on a given parameter use a key-value pair: <br> _api/Businesses/?name=businessName_
+* To get a set of results based on two parameters use the & symbol between each key-value pair: <br>_api/Businesses/?name=businessName&city=cityName_
 
-
+The parameters available are:
+- businessId
+- name
+- type
+- streetAddress
+- city
+- state
+- zipCode
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
 
