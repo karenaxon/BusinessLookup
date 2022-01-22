@@ -1,4 +1,4 @@
-# Karen Axon Portfolio
+# Business Lookup API
 This is a business lookup API. It has Create, Read, Update, and Delete (CRUD) and Cross-Origin Requests (CORS) functionality. It successfully returns API calls.
 
 #### By Karen Axon
