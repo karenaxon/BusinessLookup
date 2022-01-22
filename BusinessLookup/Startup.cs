@@ -17,8 +17,19 @@ namespace BusinessLookup
 
     public IConfiguration Configuration { get; }
 
+    readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
     public void ConfigureServices(IServiceCollection services)
     {
+      services.AddCors(options =>
+      {
+        options.AddPolicy(name: MyAllowSpecificOrigins,
+                builder =>
+                {
+                    builder.WithOrigins("http://localhost:5004",
+                                        "http://localhost:5005");
+                });
+      });
 
       services.AddDbContext<BusinessLookupContext>(opt =>
           opt.UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
@@ -35,6 +46,8 @@ namespace BusinessLookup
       // app.UseHttpsRedirection();
 
       app.UseRouting();
+
+      app.UseCors(MyAllowSpecificOrigins);
 
       app.UseAuthorization();
 

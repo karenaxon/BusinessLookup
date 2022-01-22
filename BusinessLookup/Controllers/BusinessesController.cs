@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Cors;
 using BusinessLookup.Models;
 
 namespace BusinessLookup.Controllers
 {
+  [EnableCors("MyAllowSpecificOrigins")]
   [Route("api/[controller]")]
   [ApiController]
   public class BusinessesController : ControllerBase
